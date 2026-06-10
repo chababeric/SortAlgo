@@ -10,7 +10,7 @@ int main() {
     constexpr int SIZE = 5;
     constexpr int MAX_VALUE = 10;
     constexpr int MIN_VALUE = 1;
-    MergeSort sorter;
+    MergeSort mergeSorter;
 
     std::vector<int> data(SIZE);
 
@@ -31,7 +31,7 @@ int main() {
     std::cout << "}" << std::endl;
 
     const auto start = std::chrono::high_resolution_clock::now();
-    const std::vector<int> sortedData = sorter.sortArray(data);
+    const std::vector<int> sortedData = mergeSorter.sortArray(data);
     const auto end = std::chrono::high_resolution_clock::now();
 
     std::cout << "Sorted array: { ";
