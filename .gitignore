@@ -56,3 +56,4 @@ CMakeUserPresets.json
 
 # Optional: Uncomment if you do not want to share any project configurations
  .idea/
+ .idea
