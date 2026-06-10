@@ -7,6 +7,9 @@
 #include <vector>
 
 
+/*
+ * Abstract class that
+ */
 class Sort {
 public:
     virtual ~Sort() = default;
