@@ -1,4 +1,5 @@
 CMakeLists.txt.user
+CMakeLists.txt
 CMakeCache.txt
 CMakeFiles
 CMakeScripts
@@ -48,12 +49,23 @@ CMakeUserPresets.json
 /build*/
 
 # JetBrains CLion project files
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/usage.xml
-.idea/shelf/
-.idea/dictionaries/
+.idea/
 
-# Optional: Uncomment if you do not want to share any project configurations
- .idea/
- .idea
+# CMake/CTest generated files (can appear at root or in subfolders)
+**/CMakeFiles/
+**/CMakeCache.txt
+**/CMakeScripts/
+**/Testing/
+**/cmake_install.cmake
+**/install_manifest.txt
+**/compile_commands.json
+**/CTestTestfile.cmake
+**/Makefile
+**/_deps/
+
+# Optional: ignore all XML files (IDE metadata, reports, etc.)
+*.xml
+
+# macOS Finder metadata
+.DS_Store
+/CMakeLists.txt
