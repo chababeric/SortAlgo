@@ -10,3 +10,49 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 CMakeUserPresets.json
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran compiled modules
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# CLion / CMake build directories
+/cmake-build-*/
+/build*/
+
+# JetBrains CLion project files
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.xml
+.idea/shelf/
+.idea/dictionaries/
+
+# Optional: Uncomment if you do not want to share any project configurations
+ .idea/
