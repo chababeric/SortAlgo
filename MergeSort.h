@@ -14,6 +14,7 @@
  */
 class MergeSort : public Sort {
 private:
+    std::string algorithmName = "Merge Sort";
     /**
      * @brief Merges two sorted subvectors into the destination array.
      * @param array Destination vector where merged result is placed.

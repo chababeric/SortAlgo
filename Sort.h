@@ -11,6 +11,9 @@
  * Abstract class that
  */
 class Sort {
+protected:
+    std::string algorithmName;
+    
 public:
     virtual ~Sort() = default;
 

@@ -9,6 +9,7 @@
 
 class QuickSort : public Sort {
 private:
+    std::string algorithmName = "Quick Sort";
     static int partition(std::vector<int>& array, int low, int high);
     static void quickSort(std::vector<int>& array, int low, int high);
 
