@@ -3,6 +3,7 @@
 #include <random>
 
 #include "MergeSort.h"
+#include "QuickSort.h"
 
 
 int main() {
@@ -11,6 +12,7 @@ int main() {
     constexpr int MAX_VALUE = 10;
     constexpr int MIN_VALUE = 1;
     MergeSort mergeSorter;
+    QuickSort quickSorter;
 
     std::vector<int> data(SIZE);
 
@@ -31,7 +33,7 @@ int main() {
     std::cout << "}" << std::endl;
 
     const auto start = std::chrono::high_resolution_clock::now();
-    const std::vector<int> sortedData = mergeSorter.sortArray(data);
+    const std::vector<int> sortedData = quickSorter.sortArray(data);
     const auto end = std::chrono::high_resolution_clock::now();
 
     std::cout << "Sorted array: { ";
