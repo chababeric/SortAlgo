@@ -15,25 +15,9 @@
 class MergeSort : public Sort {
 private:
     std::string algorithmName = "Merge Sort";
-    /**
-     * @brief Merges two sorted subvectors into the destination array.
-     * @param array Destination vector where merged result is placed.
-     * @param left Sorted left subvector.
-     * @param right Sorted right subvector.
-     *
-     * This helper writes the merged, sorted elements into 'array'.
-     */
-    static void merge(std::vector<int>& array, const std::vector<int>& left, const std::vector<int>& right);
 
-    /**
-     * @brief Splits the range [low, high) into two halves and prepares indices.
-     * @param low Lower bound (inclusive).
-     * @param high Upper bound (exclusive).
-     * @return The midpoint index between low and high.
-     *
-     * Utility used by the divide phase of merge sort.
-     */
-    static int split(int low, int high);
+    void merge(std::vector<int>& array, int left, int mid, int right);
+    void mergeSort(std::vector<int>& array, int left, int right);
 
 public:
     /**
@@ -44,6 +28,8 @@ public:
      * This implementation may create temporary vectors during the sort.
      */
     std::vector<int> sortArray(std::vector<int>& data) override;
+
+    std::string getAlgorithmName() override;
 };
 
 

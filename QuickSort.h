@@ -10,11 +10,12 @@
 class QuickSort : public Sort {
 private:
     std::string algorithmName = "Quick Sort";
-    static int partition(std::vector<int>& array, int low, int high);
-    static void quickSort(std::vector<int>& array, int low, int high);
+    int partition(std::vector<int>& array, int low, int high);
+    void quickSort(std::vector<int>& array, int low, int high);
 
 public:
     std::vector<int> sortArray(std::vector<int>& data) override;
+    std::string getAlgorithmName() override;
 };
 
 

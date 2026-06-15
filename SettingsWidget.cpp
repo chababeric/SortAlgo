@@ -3,6 +3,9 @@
 //
 
 #include "SettingsWidget.h"
+#include "AnimationWidget.h"
+#include "MergeSort.h"
+#include "QuickSort.h"
 
 #include <QGroupBox>
 #include <QComboBox>
@@ -54,14 +57,14 @@ SettingsWidget::SettingsWidget(QWidget *parent) : QWidget(parent) {
     formLayout->addRow("Numbers:", numbersLayout);
 
     // List length
-    auto* listLengthSpinBox = new QSpinBox(settingsBox);
-    listLengthSpinBox->setRange(3, 100000);
+    listLengthSpinBox = new QSpinBox(settingsBox);
+    listLengthSpinBox->setRange(3, 10000000);
     listLengthSpinBox->setValue(10);
     listLengthSpinBox->setFixedWidth(120);
     formLayout->addRow("List length:", listLengthSpinBox);
 
     // Simulation speed
-    auto* simulationSpeedSlider = new QSlider(Qt::Horizontal, settingsBox);
+    simulationSpeedSlider = new QSlider(Qt::Horizontal, settingsBox);
     simulationSpeedSlider->setRange(1, 100);
     simulationSpeedSlider->setValue(50);
     simulationSpeedSlider->setFixedWidth(300);
@@ -99,8 +102,37 @@ SettingsWidget::SettingsWidget(QWidget *parent) : QWidget(parent) {
     settingsLayout->addLayout(buttonLayout);
 
     // Button Actions
-    cancelButton->connect(cancelButton, &QPushButton::clicked, this, &QWidget::close);
-    randomButton->connect(randomButton, &QPushButton::clicked, this, [this, listLengthSpinBox]() {
+    connect(cancelButton, &QPushButton::clicked, this, &QWidget::close);
+
+    connect(okButton, &QPushButton::clicked, this, [this]() {
+        QString text = data->text();
+        QStringList strList = text.split(",", Qt::SkipEmptyParts);
+        std::vector<int> numbers;
+        for (const QString& s : strList) {
+            bool ok;
+            int val = s.trimmed().toInt(&ok);
+            if (ok) {
+                numbers.push_back(val);
+            }
+        }
+
+        int speed = simulationSpeedSlider->value();
+
+        Sort* algorithm = nullptr;
+        if (sortingAlgorithmComboBox->currentText() == "Merge Sort") {
+            algorithm = new MergeSort();
+        } else if (sortingAlgorithmComboBox->currentText() == "Quick Sort") {
+            algorithm = new QuickSort();
+        }
+
+        auto* animWidget = new AnimationWidget(numbers, algorithm, speed);
+        animWidget->setAttribute(Qt::WA_DeleteOnClose);
+        animWidget->show();
+
+        this->close();
+    });
+
+    connect(randomButton, &QPushButton::clicked, this, [this]() {
         const int listLength = listLengthSpinBox->value();
         const std::vector<int> randomList = generateRandomList(listLength);
         QStringList stringList;

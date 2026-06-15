@@ -22,7 +22,7 @@ private:
     QLineEdit* data{};
     QSpinBox* listLengthSpinBox;
     QSlider* simulationSpeedSlider;
-    std::vector<int> generateRandomList(int listLength);
+    static std::vector<int> generateRandomList(int listLength);
 };
 
 

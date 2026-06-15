@@ -10,18 +10,21 @@ int QuickSort::partition(std::vector<int> &array, int low, int high) {
     int i = low - 1;
 
     for (int j = low; j <= high - 1; ++j) {
+        if (stopRequested) return pivot;
         if (array[j] <= pivot) {
             i++;
             std::swap(array[i], array[j]);
+            pause();
         }
     }
     std::swap(array[i + 1], array[high]);
+    pause();
 
     return (i + 1);
 }
 
 void QuickSort::quickSort(std::vector<int> &array, int low, int high) {
-    if (low < high) {
+    if (low < high && !stopRequested) {
         int pivot = partition(array, low, high);
 
         quickSort(array, low, pivot - 1);
@@ -36,4 +39,8 @@ std::vector<int> QuickSort::sortArray(std::vector<int> &data) {
     quickSort(data, low, high);
 
     return data;
+}
+
+std::string QuickSort::getAlgorithmName() {
+    return algorithmName;
 }

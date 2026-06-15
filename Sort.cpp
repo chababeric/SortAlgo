@@ -3,3 +3,7 @@
 //
 
 #include "Sort.h"
+
+std::string Sort::getAlgorithmName() {
+    return algorithmName;
+}
